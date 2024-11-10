@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿﻿using Microsoft.EntityFrameworkCore;
 using W9_assignment_template.Data;
+using W9_assignment_template.Models;
 
 namespace W9_assignment_template.Services;
 
@@ -10,6 +11,7 @@ public class Menu
     public Menu(GameContext gameContext)
     {
         _gameContext = gameContext;
+        _gameContext.Seed();
     }
 
     public void Show()
@@ -18,7 +20,7 @@ public class Menu
         {
             Console.WriteLine("1. Display Rooms");
             Console.WriteLine("2. Display Characters");
-            Console.WriteLine("3. Exit");
+            Console.WriteLine("0. Exit");
             Console.Write("Enter your choice: ");
 
             var choice = Console.ReadLine();
@@ -31,7 +33,7 @@ public class Menu
                 case "2":
                     DisplayCharacters();
                     break;
-                case "3":
+                case "0":
                     return;
                 default:
                     Console.WriteLine("Invalid option, please try again.");
