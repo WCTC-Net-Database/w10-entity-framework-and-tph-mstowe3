@@ -11,8 +11,8 @@ using W9_assignment_template.Data;
 namespace W9_assignment_template.Migrations
 {
     [DbContext(typeof(GameContext))]
-    [Migration("20241110173114_AddAbilitiesTable")]
-    partial class AddAbilitiesTable
+    [Migration("20241110174150_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

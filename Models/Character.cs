@@ -1,4 +1,4 @@
-﻿﻿namespace W9_assignment_template.Models;
+﻿namespace W9_assignment_template.Models;
 
 public abstract class Character : ICharacter
 {

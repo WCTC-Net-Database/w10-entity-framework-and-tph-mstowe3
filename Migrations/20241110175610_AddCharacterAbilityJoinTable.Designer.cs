@@ -11,8 +11,8 @@ using W9_assignment_template.Data;
 namespace W9_assignment_template.Migrations
 {
     [DbContext(typeof(GameContext))]
-    [Migration("20241110173204_SeedAbilities")]
-    partial class SeedAbilities
+    [Migration("20241110175610_AddCharacterAbilityJoinTable")]
+    partial class AddCharacterAbilityJoinTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

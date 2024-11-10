@@ -1,4 +1,4 @@
-﻿﻿using System.Configuration.Assemblies;
+﻿using System.Configuration.Assemblies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using W9_assignment_template.Models;
@@ -42,9 +42,10 @@ public class GameContext : DbContext
         base.OnModelCreating(modelBuilder);
     }
 
-    public void Seed()
+public void Seed()
+{
+    try
     {
-        
         var room1 = new Room { Name = "Entrance Hall", Description = "The main entry." };
         var room2 = new Room { Name = "Treasure Room", Description = "A room filled with treasures." };
 
@@ -53,13 +54,22 @@ public class GameContext : DbContext
 
         Rooms.AddRange(room1, room2);
         Characters.AddRange(character1, character2);
-    
-        var walk = new WalkAbility {Description = "The Character Can Walk."};
-        var stab = new StabAbility {Description = "The Character Can Stab."};
-        var shapeshift = new MagicAbility {Description = "The Character Can Attack with Magic."};
 
-        Abilities.AddRange(walk, stab, shapeshift);
+        var walk = new WalkAbility { Description = "The Character Can Walk." };
+        var stab = new StabAbility { Description = "The Character Can Stab." };
+        var magic = new MagicAbility { Description = "The Character Can Attack with Magic." };
+
+        Abilities.AddRange(walk, stab, magic);
 
         SaveChanges();
     }
+    catch (Exception ex)
+    {
+        
+        Console.WriteLine($"An error occurred while saving changes: {ex.Message}");
+        Console.WriteLine(ex.StackTrace); 
+    }
+}
+
+
 }
